@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegisterWindow</class>
+ <widget class="QDialog" name="RegisterWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>461</width>
+    <height>294</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="Labelusername">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Username</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelpassword">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>37</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Password</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelretypepassword">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Re-type Password</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelalreadyexisting">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>10</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;* Already Existing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelnotmatching">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>50</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;* Not Matching&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditusername">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>10</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditpassword">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>30</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditretypepassword">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>50</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxdateofbirth">
+   <property name="geometry">
+    <rect>
+     <x>29</x>
+     <y>80</y>
+     <width>271</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Date of Birth</string>
+   </property>
+   <widget class="QComboBox" name="comboBoxmonth">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>55</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Jan</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Feb</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>March</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>April</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>May</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>June</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>July</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>August</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>September</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>October</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>November</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>December</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="labelday">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>10</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Day</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelmonth">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Month</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelyear">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Year</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditday">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>30</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdityear">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="labelage">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>110</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;*Age is less that 12&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxgender">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Gender</string>
+   </property>
+   <widget class="QRadioButton" name="radioButtonmale">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>69</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Male</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButtonfemale">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>69</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxaccounttype">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>140</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Account Type</string>
+   </property>
+   <widget class="QRadioButton" name="radioButtonuser">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>69</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>User</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButtonadmin">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>69</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Admin</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxfave">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>140</y>
+     <width>141</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Favorite Genre(s)</string>
+   </property>
+   <widget class="QCheckBox" name="checkBoxaction">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Action</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxromance">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Romance</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxhorror">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Horror</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxother">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>60</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Other</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxdrama">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>40</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Drama</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxcomedy">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Comedy</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButtonregister">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>250</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>250</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;*All lines must be filled&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
