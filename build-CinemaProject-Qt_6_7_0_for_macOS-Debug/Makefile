@@ -52,14 +52,20 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../CinemaProject/main.cpp \
+SOURCES       = ../CinemaProject/Users.cpp \
+		../CinemaProject/main.cpp \
 		../CinemaProject/loginwindow.cpp \
+		../CinemaProject/registerwindow.cpp \
 		../CinemaProject/welcomewindow.cpp moc_loginwindow.cpp \
+		moc_registerwindow.cpp \
 		moc_welcomewindow.cpp
-OBJECTS       = main.o \
+OBJECTS       = Users.o \
+		main.o \
 		loginwindow.o \
+		registerwindow.o \
 		welcomewindow.o \
 		moc_loginwindow.o \
+		moc_registerwindow.o \
 		moc_welcomewindow.o
 DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/device_config.prf \
@@ -214,6 +220,7 @@ DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/qt_config.prf \
 		../../../Qt/6.7.0/macos/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/6.7.0/macos/mkspecs/features/spec_post.prf \
+		../CinemaProject/.qmake.stash \
 		../../../Qt/6.7.0/macos/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/mac/sdk.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/toolchain.prf \
@@ -243,9 +250,13 @@ DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/exceptions.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/yacc.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/lex.prf \
-		../CinemaProject/CinemaProject.pro ../CinemaProject/loginwindow.h \
-		../CinemaProject/welcomewindow.h ../CinemaProject/main.cpp \
+		../CinemaProject/CinemaProject.pro ../CinemaProject/Users.h \
+		../CinemaProject/loginwindow.h \
+		../CinemaProject/registerwindow.h \
+		../CinemaProject/welcomewindow.h ../CinemaProject/Users.cpp \
+		../CinemaProject/main.cpp \
 		../CinemaProject/loginwindow.cpp \
+		../CinemaProject/registerwindow.cpp \
 		../CinemaProject/welcomewindow.cpp
 QMAKE_TARGET  = CinemaProject
 DESTDIR       = 
@@ -255,7 +266,7 @@ TARGET        = CinemaProject.app/Contents/MacOS/CinemaProject
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 14.2
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Applications/Xcode.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/kabolghar/Desktop/CinemaProject/build-CinemaProject-Qt_6_7_0_for_macOS-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = arm64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -267,7 +278,7 @@ include /Users/kabolghar/Qt/6.7.0/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-CinemaProject.app/Contents/MacOS/CinemaProject: ui_loginwindow.h ui_welcomewindow.h $(OBJECTS)  
+CinemaProject.app/Contents/MacOS/CinemaProject: ui_loginwindow.h ui_registerwindow.h ui_welcomewindow.h $(OBJECTS)  
 	@test -d CinemaProject.app/Contents/MacOS/ || mkdir -p CinemaProject.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -424,6 +435,7 @@ Makefile: ../CinemaProject/CinemaProject.pro ../../../Qt/6.7.0/macos/mkspecs/mac
 		../../../Qt/6.7.0/macos/mkspecs/features/qt_config.prf \
 		../../../Qt/6.7.0/macos/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/6.7.0/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/6.7.0/macos/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/mac/sdk.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/toolchain.prf \
@@ -611,6 +623,7 @@ Makefile: ../CinemaProject/CinemaProject.pro ../../../Qt/6.7.0/macos/mkspecs/mac
 ../../../Qt/6.7.0/macos/mkspecs/features/qt_config.prf:
 ../../../Qt/6.7.0/macos/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/6.7.0/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/6.7.0/macos/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/6.7.0/macos/mkspecs/features/mac/sdk.prf:
 ../../../Qt/6.7.0/macos/mkspecs/features/toolchain.prf:
@@ -668,9 +681,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../CinemaProject/loginwindow.h ../CinemaProject/welcomewindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CinemaProject/main.cpp ../CinemaProject/loginwindow.cpp ../CinemaProject/welcomewindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CinemaProject/loginwindow.ui ../CinemaProject/welcomewindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../CinemaProject/Users.h ../CinemaProject/loginwindow.h ../CinemaProject/registerwindow.h ../CinemaProject/welcomewindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CinemaProject/Users.cpp ../CinemaProject/main.cpp ../CinemaProject/loginwindow.cpp ../CinemaProject/registerwindow.cpp ../CinemaProject/welcomewindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CinemaProject/loginwindow.ui ../CinemaProject/registerwindow.ui ../CinemaProject/welcomewindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -680,6 +693,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r CinemaProject.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -698,14 +712,20 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_loginwindow.cpp moc_welcomewindow.cpp
+compiler_moc_header_make_all: moc_loginwindow.cpp moc_registerwindow.cpp moc_welcomewindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_loginwindow.cpp moc_welcomewindow.cpp
+	-$(DEL_FILE) moc_loginwindow.cpp moc_registerwindow.cpp moc_welcomewindow.cpp
 moc_loginwindow.cpp: ../CinemaProject/loginwindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/6.7.0/macos/libexec/moc
 	/Users/kabolghar/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kabolghar/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kabolghar/Desktop/CinemaProject/CinemaProject -I/Users/kabolghar/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kabolghar/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kabolghar/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/kabolghar/Qt/6.7.0/macos/lib ../CinemaProject/loginwindow.h -o moc_loginwindow.cpp
+
+moc_registerwindow.cpp: ../CinemaProject/registerwindow.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/libexec/moc
+	/Users/kabolghar/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kabolghar/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kabolghar/Desktop/CinemaProject/CinemaProject -I/Users/kabolghar/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kabolghar/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kabolghar/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/kabolghar/Qt/6.7.0/macos/lib ../CinemaProject/registerwindow.h -o moc_registerwindow.cpp
 
 moc_welcomewindow.cpp: ../CinemaProject/welcomewindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
@@ -717,12 +737,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_loginwindow.h ui_welcomewindow.h
+compiler_uic_make_all: ui_loginwindow.h ui_registerwindow.h ui_welcomewindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_loginwindow.h ui_welcomewindow.h
+	-$(DEL_FILE) ui_loginwindow.h ui_registerwindow.h ui_welcomewindow.h
 ui_loginwindow.h: ../CinemaProject/loginwindow.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
 	/Users/kabolghar/Qt/6.7.0/macos/libexec/uic ../CinemaProject/loginwindow.ui -o ui_loginwindow.h
+
+ui_registerwindow.h: ../CinemaProject/registerwindow.ui \
+		../../../Qt/6.7.0/macos/libexec/uic
+	/Users/kabolghar/Qt/6.7.0/macos/libexec/uic ../CinemaProject/registerwindow.ui -o ui_registerwindow.h
 
 ui_welcomewindow.h: ../CinemaProject/welcomewindow.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
@@ -740,6 +764,11 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
+Users.o: ../CinemaProject/Users.cpp ../CinemaProject/Users.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Users.o ../CinemaProject/Users.cpp
+
 main.o: ../CinemaProject/main.cpp ../CinemaProject/loginwindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -753,6 +782,12 @@ loginwindow.o: ../CinemaProject/loginwindow.cpp ../CinemaProject/loginwindow.h \
 		ui_loginwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o ../CinemaProject/loginwindow.cpp
 
+registerwindow.o: ../CinemaProject/registerwindow.cpp ../CinemaProject/registerwindow.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_registerwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registerwindow.o ../CinemaProject/registerwindow.cpp
+
 welcomewindow.o: ../CinemaProject/welcomewindow.cpp ../CinemaProject/welcomewindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -761,6 +796,9 @@ welcomewindow.o: ../CinemaProject/welcomewindow.cpp ../CinemaProject/welcomewind
 
 moc_loginwindow.o: moc_loginwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginwindow.o moc_loginwindow.cpp
+
+moc_registerwindow.o: moc_registerwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_registerwindow.o moc_registerwindow.cpp
 
 moc_welcomewindow.o: moc_welcomewindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_welcomewindow.o moc_welcomewindow.cpp
