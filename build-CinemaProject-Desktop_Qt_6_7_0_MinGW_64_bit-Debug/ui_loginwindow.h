@@ -39,7 +39,7 @@ public:
     {
         if (LoginWindow->objectName().isEmpty())
             LoginWindow->setObjectName("LoginWindow");
-        LoginWindow->resize(800, 600);
+        LoginWindow->resize(353, 209);
         centralwidget = new QWidget(LoginWindow);
         centralwidget->setObjectName("centralwidget");
         pushButtonlogin = new QPushButton(centralwidget);
@@ -67,7 +67,7 @@ public:
         LoginWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(LoginWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 353, 37));
         LoginWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(LoginWindow);
         statusbar->setObjectName("statusbar");
