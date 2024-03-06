@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -27,11 +28,13 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButtonlogin;
     QPushButton *pushButtonregister;
-    QLabel *labellogin;
-    QLabel *labelpassword;
+    QLabel *labelerror;
+    QSplitter *splitter;
     QLineEdit *lineEditLogin;
     QLineEdit *lineEditpassword;
-    QLabel *labelerror;
+    QSplitter *splitter_2;
+    QLabel *labellogin;
+    QLabel *labelpassword;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,26 +47,34 @@ public:
         centralwidget->setObjectName("centralwidget");
         pushButtonlogin = new QPushButton(centralwidget);
         pushButtonlogin->setObjectName("pushButtonlogin");
-        pushButtonlogin->setGeometry(QRect(80, 100, 80, 21));
+        pushButtonlogin->setGeometry(QRect(80, 100, 80, 31));
         pushButtonregister = new QPushButton(centralwidget);
         pushButtonregister->setObjectName("pushButtonregister");
-        pushButtonregister->setGeometry(QRect(170, 100, 80, 21));
-        labellogin = new QLabel(centralwidget);
-        labellogin->setObjectName("labellogin");
-        labellogin->setGeometry(QRect(60, 30, 37, 21));
-        labelpassword = new QLabel(centralwidget);
-        labelpassword->setObjectName("labelpassword");
-        labelpassword->setGeometry(QRect(46, 60, 51, 21));
-        lineEditLogin = new QLineEdit(centralwidget);
-        lineEditLogin->setObjectName("lineEditLogin");
-        lineEditLogin->setGeometry(QRect(110, 30, 113, 20));
-        lineEditpassword = new QLineEdit(centralwidget);
-        lineEditpassword->setObjectName("lineEditpassword");
-        lineEditpassword->setGeometry(QRect(110, 60, 113, 20));
-        lineEditpassword->setEchoMode(QLineEdit::Password);
+        pushButtonregister->setGeometry(QRect(170, 100, 80, 31));
         labelerror = new QLabel(centralwidget);
         labelerror->setObjectName("labelerror");
         labelerror->setGeometry(QRect(60, 80, 231, 20));
+        splitter = new QSplitter(centralwidget);
+        splitter->setObjectName("splitter");
+        splitter->setGeometry(QRect(160, 30, 125, 42));
+        splitter->setOrientation(Qt::Vertical);
+        lineEditLogin = new QLineEdit(splitter);
+        lineEditLogin->setObjectName("lineEditLogin");
+        splitter->addWidget(lineEditLogin);
+        lineEditpassword = new QLineEdit(splitter);
+        lineEditpassword->setObjectName("lineEditpassword");
+        lineEditpassword->setEchoMode(QLineEdit::Password);
+        splitter->addWidget(lineEditpassword);
+        splitter_2 = new QSplitter(centralwidget);
+        splitter_2->setObjectName("splitter_2");
+        splitter_2->setGeometry(QRect(80, 30, 58, 32));
+        splitter_2->setOrientation(Qt::Vertical);
+        labellogin = new QLabel(splitter_2);
+        labellogin->setObjectName("labellogin");
+        splitter_2->addWidget(labellogin);
+        labelpassword = new QLabel(splitter_2);
+        labelpassword->setObjectName("labelpassword");
+        splitter_2->addWidget(labelpassword);
         LoginWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(LoginWindow);
         menubar->setObjectName("menubar");
@@ -83,9 +94,9 @@ public:
         LoginWindow->setWindowTitle(QCoreApplication::translate("LoginWindow", "LoginWindow", nullptr));
         pushButtonlogin->setText(QCoreApplication::translate("LoginWindow", "Login", nullptr));
         pushButtonregister->setText(QCoreApplication::translate("LoginWindow", "Register", nullptr));
+        labelerror->setText(QCoreApplication::translate("LoginWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ff0000;\">Error: Wrong Username Or Password</span></p></body></html>", nullptr));
         labellogin->setText(QCoreApplication::translate("LoginWindow", "Login", nullptr));
         labelpassword->setText(QCoreApplication::translate("LoginWindow", "Password", nullptr));
-        labelerror->setText(QCoreApplication::translate("LoginWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ff0000;\">Error: Wrong Username Or Password</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

@@ -37,7 +37,7 @@ public:
         pushButtonLogout->setGeometry(QRect(10, 410, 141, 41));
         labelPicture = new QLabel(WelcomeWindow);
         labelPicture->setObjectName("labelPicture");
-        labelPicture->setGeometry(QRect(170, 60, 71, 41));
+        labelPicture->setGeometry(QRect(20, 60, 381, 281));
 
         retranslateUi(WelcomeWindow);
 

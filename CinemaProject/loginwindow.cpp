@@ -25,7 +25,7 @@ void LoginWindow::on_pushButtonlogin_clicked()
     for(int i = 0; i<usersCount;i++){
         if(username == usernames[i] && password == passwords[i]){
             hide();
-            WelcomeWindow* welcomeWindow = new WelcomeWindow(this);
+            WelcomeWindow* welcomeWindow = new WelcomeWindow(this,username[i]);
             welcomeWindow->show();
         }
         else{
