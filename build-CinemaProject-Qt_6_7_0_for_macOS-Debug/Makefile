@@ -56,7 +56,8 @@ SOURCES       = ../CinemaProject/Users.cpp \
 		../CinemaProject/main.cpp \
 		../CinemaProject/loginwindow.cpp \
 		../CinemaProject/registerwindow.cpp \
-		../CinemaProject/welcomewindow.cpp moc_loginwindow.cpp \
+		../CinemaProject/welcomewindow.cpp qrc_Images.cpp \
+		moc_loginwindow.cpp \
 		moc_registerwindow.cpp \
 		moc_welcomewindow.cpp
 OBJECTS       = Users.o \
@@ -64,6 +65,7 @@ OBJECTS       = Users.o \
 		loginwindow.o \
 		registerwindow.o \
 		welcomewindow.o \
+		qrc_Images.o \
 		moc_loginwindow.o \
 		moc_registerwindow.o \
 		moc_welcomewindow.o
@@ -466,6 +468,7 @@ Makefile: ../CinemaProject/CinemaProject.pro ../../../Qt/6.7.0/macos/mkspecs/mac
 		../../../Qt/6.7.0/macos/mkspecs/features/yacc.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/lex.prf \
 		../CinemaProject/CinemaProject.pro \
+		../Resources/Images.qrc \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Resources/QtWidgets.prl \
 		../../../Qt/6.7.0/macos/lib/QtGui.framework/Resources/QtGui.prl \
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Resources/QtCore.prl
@@ -654,6 +657,7 @@ Makefile: ../CinemaProject/CinemaProject.pro ../../../Qt/6.7.0/macos/mkspecs/mac
 ../../../Qt/6.7.0/macos/mkspecs/features/yacc.prf:
 ../../../Qt/6.7.0/macos/mkspecs/features/lex.prf:
 ../CinemaProject/CinemaProject.pro:
+../Resources/Images.qrc:
 ../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Resources/QtWidgets.prl:
 ../../../Qt/6.7.0/macos/lib/QtGui.framework/Resources/QtGui.prl:
 ../../../Qt/6.7.0/macos/lib/QtCore.framework/Resources/QtCore.prl:
@@ -681,6 +685,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../Resources/Images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../CinemaProject/Users.h ../CinemaProject/loginwindow.h ../CinemaProject/registerwindow.h ../CinemaProject/welcomewindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../CinemaProject/Users.cpp ../CinemaProject/main.cpp ../CinemaProject/loginwindow.cpp ../CinemaProject/registerwindow.cpp ../CinemaProject/welcomewindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../CinemaProject/loginwindow.ui ../CinemaProject/registerwindow.ui ../CinemaProject/welcomewindow.ui $(DISTDIR)/
@@ -710,8 +715,14 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_Images.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_Images.cpp
+qrc_Images.cpp: ../Resources/Images.qrc \
+		../../../Qt/6.7.0/macos/libexec/rcc \
+		../Resources/Cinema\ 4609877.jpg
+	/Users/kabolghar/Qt/6.7.0/macos/libexec/rcc -name Images --no-zstd ../Resources/Images.qrc -o qrc_Images.cpp
+
 compiler_moc_header_make_all: moc_loginwindow.cpp moc_registerwindow.cpp moc_welcomewindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_loginwindow.cpp moc_registerwindow.cpp moc_welcomewindow.cpp
@@ -760,7 +771,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -779,7 +790,14 @@ main.o: ../CinemaProject/main.cpp ../CinemaProject/loginwindow.h \
 loginwindow.o: ../CinemaProject/loginwindow.cpp ../CinemaProject/loginwindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_loginwindow.h
+		../CinemaProject/Users.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../CinemaProject/registerwindow.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_loginwindow.h \
+		../CinemaProject/welcomewindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o ../CinemaProject/loginwindow.cpp
 
 registerwindow.o: ../CinemaProject/registerwindow.cpp ../CinemaProject/registerwindow.h \
@@ -791,8 +809,14 @@ registerwindow.o: ../CinemaProject/registerwindow.cpp ../CinemaProject/registerw
 welcomewindow.o: ../CinemaProject/welcomewindow.cpp ../CinemaProject/welcomewindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		ui_welcomewindow.h
+		ui_welcomewindow.h \
+		../CinemaProject/loginwindow.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomewindow.o ../CinemaProject/welcomewindow.cpp
+
+qrc_Images.o: qrc_Images.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Images.o qrc_Images.cpp
 
 moc_loginwindow.o: moc_loginwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginwindow.o moc_loginwindow.cpp

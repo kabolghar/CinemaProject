@@ -28,16 +28,16 @@ public:
     {
         if (WelcomeWindow->objectName().isEmpty())
             WelcomeWindow->setObjectName("WelcomeWindow");
-        WelcomeWindow->resize(416, 470);
+        WelcomeWindow->resize(813, 652);
         labelHello = new QLabel(WelcomeWindow);
         labelHello->setObjectName("labelHello");
         labelHello->setGeometry(QRect(10, 20, 181, 16));
         pushButtonLogout = new QPushButton(WelcomeWindow);
         pushButtonLogout->setObjectName("pushButtonLogout");
-        pushButtonLogout->setGeometry(QRect(10, 410, 141, 41));
+        pushButtonLogout->setGeometry(QRect(340, 590, 141, 41));
         labelPicture = new QLabel(WelcomeWindow);
         labelPicture->setObjectName("labelPicture");
-        labelPicture->setGeometry(QRect(170, 60, 71, 41));
+        labelPicture->setGeometry(QRect(20, 60, 761, 491));
 
         retranslateUi(WelcomeWindow);
 

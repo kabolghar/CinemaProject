@@ -12,7 +12,7 @@ class WelcomeWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit WelcomeWindow(QWidget *parent = nullptr, QString username = "default");
+    explicit WelcomeWindow(QWidget *parent = nullptr, QString username = "default", int age = 0);
     ~WelcomeWindow();
 
 private slots:

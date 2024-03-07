@@ -2,15 +2,15 @@
 #include "ui_welcomewindow.h"
 #include "loginwindow.h"
 
-WelcomeWindow::WelcomeWindow(QWidget *parent, QString username)
+WelcomeWindow::WelcomeWindow(QWidget *parent, QString username, int age)
     : QDialog(parent)
     , ui(new Ui::WelcomeWindow)
 {
     ui->setupUi(this);
-    //QString ages = QString :: number(age);
-    ui->labelHello->setText("Hello, "+username);
+    QString ages = QString :: number(age);
+    ui->labelHello->setText("Hello, "+username+" "+ages);
 
-    QPixmap pix ("C:\\Users\\farid\\Documents\\CS Lab Assignment\\CinemaProject\\depositphotos_328859414-stock-photo-projector-cinema-hall-blank-white.jpg");
+    QPixmap pix (":/pics/Cinema 4609877.jpg");
     int w = ui->labelPicture->width();
     int h = ui->labelPicture->height();
     ui->labelPicture->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));

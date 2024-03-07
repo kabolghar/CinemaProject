@@ -54,7 +54,7 @@ public:
     QCheckBox *checkBoxromance;
     QCheckBox *checkBoxhorror;
     QPushButton *pushButtonregister;
-    QLabel *label;
+    QLabel *labelmissing;
     QSplitter *splitter_5;
     QLineEdit *lineEditusername;
     QLineEdit *lineEditpassword;
@@ -169,9 +169,9 @@ public:
         pushButtonregister = new QPushButton(RegisterWindow);
         pushButtonregister->setObjectName("pushButtonregister");
         pushButtonregister->setGeometry(QRect(170, 290, 80, 31));
-        label = new QLabel(RegisterWindow);
-        label->setObjectName("label");
-        label->setGeometry(QRect(260, 300, 151, 16));
+        labelmissing = new QLabel(RegisterWindow);
+        labelmissing->setObjectName("labelmissing");
+        labelmissing->setGeometry(QRect(260, 300, 151, 16));
         splitter_5 = new QSplitter(RegisterWindow);
         splitter_5->setObjectName("splitter_5");
         splitter_5->setGeometry(QRect(180, 10, 125, 63));
@@ -243,7 +243,7 @@ public:
         checkBoxromance->setText(QCoreApplication::translate("RegisterWindow", "Romance", nullptr));
         checkBoxhorror->setText(QCoreApplication::translate("RegisterWindow", "Horror", nullptr));
         pushButtonregister->setText(QCoreApplication::translate("RegisterWindow", "Register", nullptr));
-        label->setText(QCoreApplication::translate("RegisterWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">*All lines must be filled</span></p></body></html>", nullptr));
+        labelmissing->setText(QCoreApplication::translate("RegisterWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">*All lines must be filled</span></p></body></html>", nullptr));
         Labelusername->setText(QCoreApplication::translate("RegisterWindow", "Username", nullptr));
         labelpassword->setText(QCoreApplication::translate("RegisterWindow", "Password", nullptr));
         labelretypepassword->setText(QCoreApplication::translate("RegisterWindow", "Re-type Password", nullptr));

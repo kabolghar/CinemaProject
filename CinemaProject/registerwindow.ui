@@ -348,7 +348,7 @@
     <string>Register</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelmissing">
    <property name="geometry">
     <rect>
      <x>260</x>
